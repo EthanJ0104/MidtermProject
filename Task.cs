@@ -3,18 +3,18 @@ public class Task : Ticket
     public string projectName {get; set;}
     public string dueDate {get; set;}
 
-    public Task(string thisTicketID, string thisSummary, string thisStatus, string thisPriority, string thisSubmitter, string thisAssigned, string thisWatching, string thisProjectName, string thisDueDate)
-    {
-        ticketID = thisTicketID;
-        summary = thisSummary;
-        status = thisStatus;
-        priority = thisPriority;
-        submitter = thisSubmitter;
-        assigned = thisAssigned;
-        watching = thisWatching;
-        projectName = thisProjectName;
-        dueDate = thisDueDate;
-    }
+    // public Task(string thisTicketID, string thisSummary, string thisStatus, string thisPriority, string thisSubmitter, string thisAssigned, string thisWatching, string thisProjectName, string thisDueDate)
+    // {
+    //     ticketID = thisTicketID;
+    //     summary = thisSummary;
+    //     status = thisStatus;
+    //     priority = thisPriority;
+    //     submitter = thisSubmitter;
+    //     assigned = thisAssigned;
+    //     watching = thisWatching;
+    //     projectName = thisProjectName;
+    //     dueDate = thisDueDate;
+    // }
 
     public override string Display()
     {

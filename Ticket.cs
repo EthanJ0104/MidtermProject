@@ -8,10 +8,10 @@ public abstract class Ticket
     public string assigned {get; set;}
     public string watching {get; set;}
 
-    public Ticket()
-    {
-        
-    }
+    // public Ticket()
+    // {
+
+    // }
 
     public virtual string Display()
     {
