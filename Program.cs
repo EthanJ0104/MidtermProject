@@ -23,6 +23,7 @@ do
 {
     Console.WriteLine("1) Add a ticket");
     Console.WriteLine("2) Display tickets");
+    Console.WriteLine("3) Search Tickets");
     Console.WriteLine("Enter to quit");
 
     choice = Console.ReadLine();
@@ -160,6 +161,99 @@ do
         foreach (Task t in taskFile.Tasks)
         {
             Console.WriteLine(t.Display());
+        }
+    }
+
+    if (choice == "3")
+    {
+        string search = "";
+        Console.Write("Press 1 to search by status, 2 to search by priority, 3 to search by submitter: ");
+        string ticketType = Console.ReadLine();
+
+        if (ticketType == "1")
+        {
+            Console.Write("Enter status: ");
+            search = Console.ReadLine();
+
+            var bugStatus = bugFile.Bugs.Where(m => m.status.Contains(search)).Select(m => m.status);
+            Console.WriteLine($"There are {bugStatus.Count()} bugs with that status.");
+            foreach (string t in bugStatus)
+            {
+                Console.WriteLine($" {t}");
+            }
+
+            var enhancementStatus = enhancementFile.Enhancements.Where(m => m.status.Contains(search)).Select(m => m.status);
+            Console.WriteLine($"There are {enhancementStatus.Count()} enhancements with that status.");
+            foreach (string t in enhancementStatus)
+            {
+                Console.WriteLine($" {t}");
+            }
+
+            var taskStatus = taskFile.Tasks.Where(m => m.status.Contains(search)).Select(m => m.status);
+            Console.WriteLine($"There are {taskStatus.Count()} tasks with that status.");
+            foreach (string t in taskStatus)
+            {
+                Console.WriteLine($" {t}");
+            }
+        }
+
+        else if (ticketType == "2")
+        {
+            Console.Write("Enter priority: ");
+            search = Console.ReadLine();
+
+            var bugPriority = bugFile.Bugs.Where(m => m.priority.Contains(search)).Select(m => m.priority);
+            Console.WriteLine($"There are {bugPriority.Count()} bugs with that priority.");
+            foreach (string t in bugPriority)
+            {
+                Console.WriteLine($" {t}");
+            }
+
+            var enhancementPriority = enhancementFile.Enhancements.Where(m => m.priority.Contains(search)).Select(m => m.priority);
+            Console.WriteLine($"There are {enhancementPriority.Count()} enhancements with that priority.");
+            foreach (string t in enhancementPriority)
+            {
+                Console.WriteLine($" {t}");
+            }
+
+            var taskPriority = taskFile.Tasks.Where(m => m.priority.Contains(search)).Select(m => m.priority);
+            Console.WriteLine($"There are {taskPriority.Count()} tasks with that priority.");
+            foreach (string t in taskPriority)
+            {
+                Console.WriteLine($" {t}");
+            }
+        }
+
+        else if (ticketType == "3")
+        {
+            Console.Write("Enter submitter: ");
+            search = Console.ReadLine();
+
+            var bugSubmitter = bugFile.Bugs.Where(m => m.submitter.Contains(search)).Select(m => m.submitter);
+            Console.WriteLine($"There are {bugSubmitter.Count()} bugs with that submitter.");
+            foreach (string t in bugSubmitter)
+            {
+                Console.WriteLine($" {t}");
+            }
+
+            var enhancementSubmitter = enhancementFile.Enhancements.Where(m => m.submitter.Contains(search)).Select(m => m.submitter);
+            Console.WriteLine($"There are {enhancementSubmitter.Count()} enhancements with that submitter.");
+            foreach (string t in enhancementSubmitter)
+            {
+                Console.WriteLine($" {t}");
+            }
+
+            var taskSubmitter = taskFile.Tasks.Where(m => m.submitter.Contains(search)).Select(m => m.submitter);
+            Console.WriteLine($"There are {taskSubmitter.Count()} tasks with that submitter.");
+            foreach (string t in taskSubmitter)
+            {
+                Console.WriteLine($" {t}");
+            }
+        }
+
+        else
+        {
+            Console.WriteLine("Invalid Input");
         }
     }
 } while (choice == "1" || choice == "2");
